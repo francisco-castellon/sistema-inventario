@@ -11,6 +11,14 @@
         this.precio = precio;
         this.cantidad = cantidad;
     }
+    public void validarDatos() throws IllegalArgumentException {
+    if (precio < 0) {
+        throw new IllegalArgumentException("El precio no puede ser negativo.");
+    }
+    if (cantidad < 0) {
+        throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+    }
+}
 
     public int getCodigo() {
         return codigo;

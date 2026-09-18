@@ -41,9 +41,14 @@ public class Main {
                     System.out.print("Cantidad: ");
                     int cantidad = Integer.parseInt(scanner.nextLine());
 
-                    Producto nuevoProducto = new Producto(codigo, nombre, precio, cantidad);
-                    inventario.agregar(nuevoProducto);
-                    System.out.println("Producto registrado correctamente.");
+                        try {
+        Producto nuevoProducto = new Producto(codigo, nombre, precio, cantidad);
+        nuevoProducto.validarDatos();
+        inventario.agregar(nuevoProducto);
+        System.out.println("Producto registrado correctamente.");
+    } catch (IllegalArgumentException e) {
+        System.out.println("Error: " + e.getMessage());
+    }
                     break;
 
                 case 2:
